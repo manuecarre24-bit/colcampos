@@ -1,0 +1,389 @@
+/* css/style.css */
+/* 1. VARIABLES DE COLOR EXACTAS (Extraídas de image_0.png) */
+:root {
+    --verde-muy-oscuro: #033015; /* Fondo lateral */
+    --verde-boton: #064e22;      /* Botón ingresar */
+    --verde-claro-texto: #79c043; /* Texto pequeño y enlaces */
+    --gris-input: #edf2f7;       /* Fondo de los campos */
+    --blanco: #ffffff;
+    --texto-oscuro: #1a202c;
+    --texto-mutado: #555555;
+}
+
+/* 2. RESET Y ESTILOS BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Tipografía más moderna */
+    background-color: var(--blanco);
+    color: var(--texto-oscuro);
+    height: 100vh;
+    overflow: hidden; /* Evita scrolls innecesarios */
+}
+
+/* 3. CONTENEDOR SPLIT (Asimétrico 45/55) */
+.login-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* 4. COSTADO IZQUIERDO (Verde Oscuro - Informativo) */
+.sidebar {
+    background-color: var(--verde-muy-oscuro);
+    width: 45%; /* Ancho asimétrico */
+    color: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    padding: 10% 8% 10% 10%; /* Padding responsivo: Top, Right, Bottom, Left */
+    position: relative;
+}
+
+/* Círculos decorativos de fondo (como en image_0.png) */
+.sidebar::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: rgba(244, 241, 241, 0.03);
+}
+
+/* Contenedor del Logo y Texto de Marca */
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.logo-colcampos {
+    width: 100px; /* Tamaño controlado del logo */
+    height: auto;
+}
+
+.brand-text h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.brand-text p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.70);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Texto Principal */
+.main-headline {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.sub-headline {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.80);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+/* Etiquetas/Badges inferiores */
+.badges-container {
+    display: flex;
+    gap: 10px;
+}
+
+.badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+}
+
+.badge.active {
+    background-color: var(--verde-claro-texto);
+    color: #033015;
+    border-color: var(--verde-claro-texto);
+}
+
+/* 5. COSTADO DERECHO (Blanco - Formulario) */
+.login-content {
+    width: 55%; /* Ancho asimétrico */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.form-box {
+    width: 100%;
+    max-width: 450px; /* Un poco más ancho para inputs modernos */
+}
+
+.form-box h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--texto-oscuro);
+    margin-bottom: 10px;
+}
+
+.form-instructions {
+    color: var(--texto-mutado);
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+/* Estilos de Input Modernos */
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--verde-boton); /* Verde oscuro para etiquetas */
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px;
+    font-size: 1rem;
+    border: 1px solid transparent; /* Sin borde por defecto */
+    border-radius: 8px;
+    background-color: var(--gris-input);
+    color: var(--texto-oscuro);
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: var(--verde-claro-texto);
+    color: var(--texto-oscuro);
+}
+
+.input-group input::placeholder {
+    color: #a0aec0;
+}
+
+/* Botón Principal */
+.btn-ingresar {
+    width: 100%;
+    padding: 18px;
+    background-color: var(--verde-boton);
+    color: var(--blanco);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-ingresar:hover {
+    background-color: var(--verde-muy-oscuro);
+}
+
+/* Enlaces inferiores */
+.form-footer {
+    text-align: center;
+}
+
+.link-olvide {
+    color: var(--verde-boton);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.link-olvide:hover {
+    text-decoration: underline;
+}
+
+.version-text {
+    margin-top: 40px;
+    font-size: 0.75rem;
+    color: #867575;
+}
+/* --- ESTILOS GENERALES DEL DASHBOARD --- */
+
+.dashboard-body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    /* Importante: ../ sale de la carpeta css para buscar la imagen en la raíz */
+    background: url('../img_fondo.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.overlay-luz-blanca {
+    background-color: rgba(60, 70, 72, 0.65); /* Luz blanca muy clara */
+    min-height: 100vh;
+    width: 100%;
+}
+
+.dashboard-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header */
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 40px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: #064e22; }
+.mini-logo { height: 45px; }
+
+.btn-salir {
+    background: #e53e3e;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-left: 15px;
+}
+
+/* Títulos */
+/* FORZAR ESTILOS DEL DASHBOARD - FINAL DEL ARCHIVO */
+
+.dash-title {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9) !important;
+    font-size: 2.5rem !important;
+}
+
+.dash-subtitle {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9) !important;
+    font-weight: 600 !important;
+    opacity: 1 !important; /* Asegura que no sea transparente */
+}
+
+/* Para las etiquetas grises dentro de las tarjetas */
+.tag, .farm-header p {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Grid de Tarjetas */
+.farm-grid {
+    display: flex;
+    gap: 25px;
+}
+
+.farm-card {
+    flex: 1;
+    text-decoration: none;
+    border-radius: 15px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.farm-card:hover { transform: translateY(-8px); }
+
+.farm-header { padding: 40px 30px; color: white; }
+.tag { font-size: 0.7rem; font-weight: 700; opacity: 0.8; letter-spacing: 1px; }
+.farm-card h2 { font-size: 1.8rem; margin: 10px 0; }
+
+/* Colores específicos de granja */
+.farm-card.verde .farm-header { background: linear-gradient(135deg, #064e22, #033015); }
+.farm-card.naranja .farm-header { background: linear-gradient(135deg, #d35400, #a04000); }
+
+.farm-footer {
+    padding: 20px;
+    text-align: right;
+    font-weight: 700;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+/* ── MEJORAS v2.0 ── */
+
+/* Alerta de error login */
+.alert-error {
+    color: #c62828;
+    background: #ffebee;
+    border: 1px solid #ef9a9a;
+    padding: 12px 16px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Dashboard - brand title legible */
+.brand { color: #ffffff !important; }
+.brand span { color: #ffffff; font-size: 20px; letter-spacing: 1px; }
+
+/* Header usuario info */
+.user-info { display: flex; align-items: center; gap: 12px; color: #ffffff; font-size: 14px; }
+.user-info strong { color: #ffffff; }
+
+/* Botón cerrar sesión */
+.btn-salir {
+    background: #c62828;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.btn-salir:hover { background: #b71c1c; }
+
+/* Dashboard header separator */
+.dash-header {
+    border-bottom-color: rgba(255,255,255,0.25) !important;
+}
+
+/* Farm cards footer text */
+.farm-footer { color: #333333 !important; }
+
+/* Reportes button */
+.report-section { text-align: center; margin-top: 50px; padding-bottom: 40px; }
+.btn-reporte-footer {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.12);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 13px 32px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-weight: 700;
+    font-size: 14px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+.btn-reporte-footer:hover { background: white; color: #333; }
